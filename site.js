@@ -113,7 +113,7 @@ if ($('quote-form')) $('quote-form').addEventListener('submit', e => {
     msg ? `Message: ${msg}` : null
   ].filter(Boolean);
 
-  const waNumber = '919679112559'; // 91 = India country code + 9679112559
+  const waNumber = '917417049145'; // 91 = India country code + 7417049145
   const waUrl = `https://wa.me/${waNumber}?text=${encodeURIComponent(lines.join('\n'))}`;
 
   $('msg').textContent = 'Thanks! Redirecting you to WhatsApp to send your details...';
