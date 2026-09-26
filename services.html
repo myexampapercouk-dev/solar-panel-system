@@ -162,7 +162,9 @@
       <h2>Not sure which service you need?</h2>
       <p>Tell us about your home or business and we'll recommend the right system size &mdash; no obligation.</p>
     </div>
-    <form id="quote-form">
+    <form id="quote-form" name="quote" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
+      <input type="hidden" name="form-name" value="quote">
+      <p style="display:none"><label>Leave this empty <input name="bot-field"></label></p>
       <label>Name <input name="name" required autocomplete="name"></label>
       <label>Phone <input name="phone" type="tel" required autocomplete="tel"></label>
       <label>Email <input name="email" type="email" autocomplete="email"></label>

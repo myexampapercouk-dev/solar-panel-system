@@ -93,9 +93,19 @@ if (menuToggle && mobileMenu) {
 }
 
 /* ---- quote / contact form -> WhatsApp handoff (any page with #quote-form) ---- */
-if ($('quote-form')) $('quote-form').addEventListener('submit', e => {
+if ($('quote-form')) $('quote-form').addEventListener('submit', async e => {
   e.preventDefault();
   const f = e.target;
+
+  // save the submission to Netlify Forms (emailed to the site owner) before the WhatsApp handoff
+  $('msg').textContent = 'Sending...';
+  try {
+    await fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams(new FormData(f)).toString()
+    });
+  } catch (err) {}
   const name = f.name.value.trim();
   const phone = f.phone.value.trim();
   const email = f.email.value.trim();
