@@ -1,0 +1,9 @@
+{
+  "name": "solar-panel-system",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Solar Panel System website with a Gmail-backed quote form (Netlify Function)",
+  "dependencies": {
+    "nodemailer": "^6.10.1"
+  }
+}

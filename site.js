@@ -97,13 +97,15 @@ if ($('quote-form')) $('quote-form').addEventListener('submit', async e => {
   e.preventDefault();
   const f = e.target;
 
-  // save the submission to Netlify Forms (emailed to the site owner) before the WhatsApp handoff
+  // email the submission to the owner's Gmail (Netlify Function) before the WhatsApp handoff
   $('msg').textContent = 'Sending...';
+  const payload = new URLSearchParams(new FormData(f));
+  payload.set('page', location.pathname);
   try {
-    await fetch('/', {
+    await fetch('/.netlify/functions/send-quote', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: new URLSearchParams(new FormData(f)).toString()
+      body: payload.toString()
     });
   } catch (err) {}
   const name = f.name.value.trim();
