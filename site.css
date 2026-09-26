@@ -350,3 +350,6 @@ input,select{font:inherit;color:var(--ink);background:var(--field);padding:12px 
 @media (max-width:900px){.cards,.values-grid,.team-grid,.contact-grid,.gallery-grid{grid-template-columns:repeat(2,1fr)}}
 @media (max-width:600px){.cards,.values-grid,.team-grid,.contact-grid,.gallery-grid{grid-template-columns:1fr}.timeline{padding-left:28px}}
 @media (prefers-reduced-motion:reduce){.page-hero-orbs i,.pin-pulse,.card .icon-wrap svg path,.card .icon-wrap svg circle,.card .icon-wrap svg polyline{animation:none!important}}
+
+/* hide the badge Netlify injects into production pages */
+#nl-badge-frame{display:none!important}
